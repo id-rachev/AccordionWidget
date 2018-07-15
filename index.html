@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to Kendo UI!</title>
+        <link href="styles/kendo.common.core.min.css" rel="stylesheet" />
+        <link href="styles/kendo.default.min.css" rel="stylesheet" />
+        <link href="styles/accordion.css" rel="stylesheet" />
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/kendo.ui.core.min.js"></script>
+        <script src="js/kendo.accordion.js"></script>
+    </head>
+    <body>
+        <div id="accordion"></div>
+
+        <script>
+            var dataSource = new kendo.data.DataSource({
+                type: "odata",
+                    transport: {
+                    read: "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Suppliers"
+                }
+            });
+
+            // default template data:
+            // var dataSource = new kendo.data.DataSource({
+            //     data: [
+            //         { title: "Beverages", content: "Soft drinks, coffees, teas, beers, and ales" },
+            //         { title: "Condiments", content: "Sweet and savory sauces, relishes, spreads, and seasonings" },
+            //         { title: "Confections", content: "Desserts, candies, and sweet breads" },
+            //         { title: "Dairy Products", content: "Cheeses" },
+            //         { title: "Grains/Cereals", content: "Breads, crackers, pasta, and cereal" },
+            //         { title: "Meat/Poultry", content: "Prepared meats" },
+            //         { title: "Produce", content: "Dried fruit and bean curd" },
+            //         { title: "Seafood", content: "Seaweed and fish" }
+            //     ]
+            // });
+
+            // custom template:
+            $("#accordion").kendoAccordion({
+                dataSource: dataSource,
+                template: "<h3 class=\"title\">#= data.CompanyName #</h3>" +
+                            "<div class=\"content\"><ul style=\"margin: 0; padding: 0; list-style: none;\">" +
+                                "<li style=\"padding: 0.5em 0;\"><b>Contact name:</b> #= data.ContactName #</li>" +
+                                "<li style=\"padding: 0.5em 0;\"><b>Contact title:</b> #= data.ContactTitle #</li>" +
+                                "<li style=\"padding: 0.5em 0;\"><b>Address:</b> #= data.Address #</li>" +
+                                "<li style=\"padding: 0.5em 0;\"><b>City:</b> #= data.City #</li>" +
+                                "<li style=\"padding: 0.5em 0;\"><b>Phone:</b> #= data.Phone #</li>" +
+                            "</ul></div>"
+            });
+        </script>
+    </body>
+</html>

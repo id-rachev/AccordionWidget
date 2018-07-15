@@ -1,0 +1,31 @@
+#accordion {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    color: #656565;
+}
+
+#accordion > .title {
+    font-size: 1em;
+    margin: 3px 0 0 0;
+    padding: 0.5em 1em;
+    background-color: #f6f6f6;
+    border: 1px solid #e3e3e3;
+}
+
+#accordion > .title:hover {
+    background-color: #ededed;
+    cursor: pointer;
+}
+
+#accordion > .title.active {
+    color: #ffffff;
+    background-color: #ff6358;
+    border-color: #ff6358;
+}
+
+#accordion > .content {
+    display: none;
+    padding: 1.5em;
+    border: 1px solid #e3e3e3;
+    border-top: 1px solid #ebebeb;;
+}
